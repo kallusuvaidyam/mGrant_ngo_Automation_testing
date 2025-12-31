@@ -1,0 +1,33 @@
+{
+  "cookies": [
+    { "name": "user_lang", "value": "en", "domain": "stg.trif.mgrant.in", "path": "/", "expires": -1, "httpOnly": false, "secure": true, "sameSite": "Lax" },
+    {
+      "name": "sid",
+      "value": "c3b3545e011ef6bd84aeefb8a900f507dbd98f77c1b8b679148cb70c",
+      "domain": "stg.trif.mgrant.in",
+      "path": "/",
+      "expires": 1767254564.803423,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    { "name": "system_user", "value": "yes", "domain": "stg.trif.mgrant.in", "path": "/", "expires": -1, "httpOnly": false, "secure": true, "sameSite": "Lax" },
+    { "name": "full_name", "value": "Administrator", "domain": "stg.trif.mgrant.in", "path": "/", "expires": -1, "httpOnly": false, "secure": true, "sameSite": "Lax" },
+    { "name": "user_id", "value": "Administrator", "domain": "stg.trif.mgrant.in", "path": "/", "expires": -1, "httpOnly": false, "secure": true, "sameSite": "Lax" }
+  ],
+  "origins": [
+    {
+      "origin": "https://stg.trif.mgrant.in",
+      "localStorage": [
+        { "name": "_version_number", "value": "1766473244.925488" },
+        { "name": "_last_load", "value": "Thu Dec 25 2025 11:32:44 GMT+0530 (India Standard Time)" },
+        { "name": "metadata_version", "value": "be43405ff36418754667242f67f092d043e60a7cebe1ce90a3cf7ec7" },
+        {
+          "name": "page_info",
+          "value": "{\"backups\":{\"modified\":\"2015-09-24 01:26:06.225378\",\"title\":\"Download Backups\"},\"permission-manager\":{\"modified\":\"2013-07-11 14:43:43\",\"title\":\"Role Permissions Manager\"},\"print-format-builder\":{\"modified\":\"2017-05-03 05:59:33.702308\",\"title\":\"Print Format Builder\"},\"print-format-builder-beta\":{\"modified\":\"2021-07-10 12:22:16.138485\",\"title\":null},\"setup-wizard\":{\"modified\":\"2017-04-12 18:45:00.774654\",\"title\":\"Setup Wizard\"},\"workflow-builder\":{\"modified\":\"2023-05-01 13:02:17.223595\",\"title\":\"Workflow Builder\"},\"dashboard-view\":{\"modified\":\"2020-12-16 12:29:08.610352\",\"title\":\"Dashboard\"},\"print\":{\"modified\":\"2020-10-09 17:23:15.163030\",\"title\":null},\"wren-ai\":{\"modified\":\"2025-09-22 14:08:28.304275\",\"title\":\"Wren-ai\"}}"
+        },
+        { "name": "sidebar-expanded", "value": "true" }
+      ]
+    }
+  ]
+}
