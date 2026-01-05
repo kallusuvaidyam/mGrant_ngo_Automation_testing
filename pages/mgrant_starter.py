@@ -33,8 +33,8 @@ def GrantStarter(page):
   # page.locator("button[data-label='Add Grant']").wait_for(state="visible")
   # page.locator("button[data-label='Add Grant']").click()
 
-  page.locator("a[data-name='Grant-0012']").wait_for(state="visible", timeout=30000)
-  page.locator("a[data-name='Grant-0012']").click()
+  page.locator("a[data-name='D-0007MP']").wait_for(state="visible", timeout=30000)
+  page.locator("a[data-name='D-0007MP']").click()
 
   page.wait_for_load_state("networkidle")
   page.wait_for_timeout(3000)

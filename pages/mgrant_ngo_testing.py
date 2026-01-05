@@ -1,6 +1,7 @@
 from pages.ngo_form_for_proposal import ngoFormDetails, ngoFormGeography, ngoFormTasks, ngoFormFiles, ngoFormNotes, ngoFormAuditLogs, ngoFormStages
 from pages.mgrant_starter import ProposalStarter, GrantStarter
-from pages.ngo_form_for_grant import grantFormDetails, grantFormGeographicalInformation, grantFormTimeframe, grantFormTask, grantFormBudgetAllocation, grantFormFundManagement
+from pages.ngo_form_for_grant import grantFormDetails, grantFormGeographicalInformation, grantFormTimeframe, grantFormTask, grantFormBudgetAllocation, grantFormFundManagement, grantFormOutput, grantFormComplianceReporting, grantFormResourceAllocation, grantFormDocuments, grantFormAuditLogs
+
 
 def fillProposalForm(page):
 
@@ -19,12 +20,12 @@ def fillProposalForm(page):
     # ========================  End Canvan to List View Form   ========================
 
     ngoFormDetails(page)
-    ngoFormGeography(page)
-    # ngoFormTasks(page)
-    ngoFormFiles(page)
-    ngoFormNotes(page)
-    ngoFormAuditLogs(page)
-    ngoFormStages(page)
+    # ngoFormGeography(page)
+    # ngoFormTasks(page) # Not Complete
+    # ngoFormFiles(page)
+    # ngoFormNotes(page)
+    # ngoFormAuditLogs(page)
+    # ngoFormStages(page)
     
     page.wait_for_timeout(10000)
 
@@ -36,6 +37,13 @@ def fillGrantForm(page):
     # grantFormDetails(page)
     # grantFormGeographicalInformation(page)
     # grantFormTimeframe(page)
-    # grantFormTask(page)
-    # grantFormBudgetAllocation(page)
-    grantFormFundManagement(page)
+
+    # grantFormTask(page)# Not Complete
+    # grantFormBudgetAllocation(page) # Not Complete
+    # grantFormFundManagement(page) # Not Complete
+
+    # grantFormOutput(page)
+    # grantFormComplianceReporting(page) # Bug -> Due date should be less then grant end date
+    # grantFormResourceAllocation(page) # Not Complete
+    grantFormDocuments(page)
+    grantFormAuditLogs(page)

@@ -160,6 +160,7 @@ def ngoFormStages(page):
 
 
 
+
 def perform_steps(page, steps):
     for step in steps:
 
@@ -167,15 +168,8 @@ def perform_steps(page, steps):
         if len(step) == 4:
             action, selector, value, wait = step
             force = False
-            use_js = False
-
         elif len(step) == 5:
             action, selector, value, force, wait = step
-            use_js = False
-
-        elif len(step) == 6:
-            action, selector, value, force, wait, use_js = step
-
         else:
             raise ValueError(f"Invalid step format: {step}")
 
@@ -184,14 +178,10 @@ def perform_steps(page, steps):
             fill_enter(page, selector, value, wait)
 
         elif action == "date":
-            # date ke liye already special JS logic use ho raha hai
             set_date_field(page, selector, value, wait)
 
         elif action == "click":
-            if use_js:
-                js_click(page, selector, wait)
-            else:
-                click(page, selector, value, force, wait)
+            click(page, selector, value, force, wait)
 
         elif action == "select":
             select_option(page, selector, value, wait)
@@ -238,65 +228,15 @@ def set_date_field(page, fieldname, date_value, wait=500):
 
 
 
-def js_click(page, selector, wait=500):
-    if selector.strip().startswith("//") or selector.strip().startswith("(//"):
-        # XPath selector
-        page.evaluate(
-            """(xp) => {
-                const result = document.evaluate(
-                    xp,
-                    document,
-                    null,
-                    XPathResult.FIRST_ORDERED_NODE_TYPE,
-                    null
-                );
-                const el = result.singleNodeValue;
-                if (!el) return;
-                el.scrollIntoView({ block: "center" });
-                el.click();
-            }""",
-            selector
-        )
-    else:
-        # CSS selector
-        page.evaluate(
-            """(sel) => {
-                const el = document.querySelector(sel);
-                if (!el) return;
-                el.scrollIntoView({ block: "center" });
-                el.click();
-            }""",
-            selector
-        )
-
-    page.wait_for_timeout(wait)
-
-
 def click(page, selector, value=None, force=False, wait=1000):
     locator = page.locator(selector).first
 
-    # 1️⃣ wait: pehle DOM me aaye (safe for SPA)
-    locator.wait_for(state="attached")
+    locator.wait_for(state="visible")
 
-    # 2️⃣ agar visible ho sakta hai to visible ka wait
-    try:
-        locator.wait_for(state="visible", timeout=2000)
-    except:
-        # hidden element ke cases me silently continue
-        pass
-
-    # 3️⃣ datatable / overflow fix
-    try:
-        locator.scroll_into_view_if_needed()
-    except:
-        pass
-
-    # 4️⃣ optional fill (old behaviour intact)
     if value:
         locator.fill(value)
 
-    # 5️⃣ click (force respected)
-    if force:
+    if force is True:
         locator.click(force=True)
     else:
         locator.click()
