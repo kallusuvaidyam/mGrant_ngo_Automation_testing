@@ -10,7 +10,7 @@ def grantFormDetails(page):
         ("fill", "input[data-fieldname='custom_project']", "Vaccination for underprivileged and marginalized communities in Madhya Pradesh", 3000),
         
         ("fill", "input[data-fieldname='custom_tri_spoc']", "abc123", 1000),
-        ("fill", "input[data-fieldname='custom_type_of_practice']", "Bending Markets for Flourishing Localities (BMFL)", 1000),
+        ("multiselect", "custom_type_of_practice" , "Bending Markets for Flourishing Localities (BMFL)", 1000),
         ("fill", "input[data-fieldname='custom_thematic_areas']", "Health", 3000),
         ("fill", "input[data-fieldname='custom_kpis']", "Test", 3000),
         ("fill", "textarea[data-fieldname='grant_description']", "Test Objective", 1000),
@@ -53,10 +53,15 @@ def grantFormTimeframe(page):
 def grantFormTask(page):
     steps = [
         ("click", "button#grant-tasks_tab-tab", None, False, 1000),
-        ("click", "div[data-fieldname='task_planner'] #footer-element #create-button-container", None, False, 1000),
-        ("click", ".modal.fade.show .modal-dialog.modal-lg .modal-content .modal-body.ui-front .form-layout .form-page .form-section.visible-section .section-body .form-column.col-sm-6 .form-group.frappe-control.input-max-width .checkbox .input-area", None, False, 1000),
-        ("fill", "input[data-fieldname='task_name']", "Test Task", 1000),
-        ("click", "div.modal-footer .standard-actions .btn.btn-primary.btn-sm.btn-modal-primary:has-text('Create')", None, False, 1000)
+        # ("click", "div[data-fieldname='task_planner'] #footer-element #create-button-container", None, False, 1000),
+        # ("click", ".modal.fade.show .modal-dialog.modal-lg .modal-content .modal-body.ui-front .form-layout .form-page .form-section.visible-section .section-body .form-column.col-sm-6 .form-group.frappe-control.input-max-width .checkbox .input-area", None, False, 1000),
+        # ("fill", "input[data-fieldname='task_name']", "Test Task", 1000),
+        # ("click", "div.modal-footer .standard-actions .btn.btn-primary.btn-sm.btn-modal-primary:has-text('Create')", None, False, 1000),
+
+        ("click", "#sva-datatable-wrapper-tasks #footer-element #create-button-container #create:has-text('Add row')", None, False, 3000),
+        ("fill", ".modal.fade.show .modal-dialog.modal-lg .modal-content .modal-body.ui-front .form-layout .form-page .form-section.visible-section .section-body .form-column.col-sm-6 div[data-fieldname='custom_title'] .form-group horizontal .control-input-wrapper .control-input input[data-fieldname['custom_title']]", "Test Title", False, 1000),
+
+
     ]
 
     perform_steps(page, steps)

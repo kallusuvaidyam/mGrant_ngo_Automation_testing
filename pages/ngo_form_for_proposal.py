@@ -192,6 +192,9 @@ def perform_steps(page, steps):
         elif action == "refresh":
             refresh_page(page, selector, value, wait)
 
+        elif action == "multiselect":
+            multiselect(page, selector, value, wait)
+
         elif action == "pause":
             pause_page(page)
 
@@ -269,6 +272,27 @@ def refresh_page(page, selector=None, value=None, wait=1000):
     page.reload()
     page.wait_for_load_state("networkidle")
     page.wait_for_timeout(wait)
+
+
+def multiselect(page, fieldname, value, wait=1000):
+    # input selector (frappe standard)
+    selector = f"input[data-fieldname='{fieldname}']"
+
+    input_box = page.locator(selector)
+    input_box.wait_for(state="visible")
+
+    # clear + type
+    input_box.fill("")
+    input_box.type(value, delay=50)
+
+    # awesomeplete ko time do
+    page.wait_for_timeout(3000)
+
+    # Enter press → value select
+    input_box.press("Enter")
+
+    page.wait_for_timeout(wait)
+
 
 
 def pause_page(page):

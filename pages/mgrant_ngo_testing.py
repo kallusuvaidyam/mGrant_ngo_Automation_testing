@@ -38,12 +38,12 @@ def fillGrantForm(page):
     # grantFormGeographicalInformation(page)
     # grantFormTimeframe(page)
 
-    # grantFormTask(page)# Not Complete
+    grantFormTask(page)# Not Complete
     # grantFormBudgetAllocation(page) # Not Complete
     # grantFormFundManagement(page) # Not Complete
 
     # grantFormOutput(page)
-    # grantFormComplianceReporting(page) # Bug -> Due date should be less then grant end date
+    # grantFormComplianceReporting(page)
     # grantFormResourceAllocation(page) # Not Complete
-    grantFormDocuments(page)
-    grantFormAuditLogs(page)
+    # grantFormDocuments(page)
+    # grantFormAuditLogs(page)
